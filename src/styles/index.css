@@ -3,6 +3,9 @@
 @import "./normalize.css";
 
 :root {
+  --white: #FFFFFF;
+  --active: #FEC012;
+  --navbar: #011D18;
   --backgroud: #01372E;
   --background-loader: linear-gradient(0deg, rgba(5,19,14,1) 48%, rgba(81,53,0,1) 100%);
 }
