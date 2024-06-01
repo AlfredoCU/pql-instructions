@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import "./normalize.css";
+
+:root {
+  --backgroud: #01372E;
+  --background-loader: linear-gradient(0deg, rgba(5,19,14,1) 48%, rgba(81,53,0,1) 100%);
+}
+
+* {
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: var(--backgroud);
+}
