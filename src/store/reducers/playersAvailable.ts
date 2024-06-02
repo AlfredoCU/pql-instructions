@@ -1,15 +1,14 @@
 import { IPlayers } from "@/utils/types";
 
-import { TGetPlayersAvailableAction } from "../actions";
-
 import {
   GET_PLAYERS_AVAILABLE_ERROR,
   GET_PLAYERS_AVAILABLE_PENDING,
   GET_PLAYERS_AVAILABLE_SUCCESS
 } from "../types";
+import { TGetPlayersAvailableAction } from "../actions";
 
 interface IState {
-  playersAvailable: IPlayers | null;
+  playersAvailable: IPlayers[] | null;
   isFetching: boolean;
   error: null;
 }

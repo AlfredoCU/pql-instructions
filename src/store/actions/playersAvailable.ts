@@ -17,7 +17,7 @@ interface IGetPlayersAvailablePendingAction {
 
 interface IGetPlayersAvailableSuccessAction {
   type: typeof GET_PLAYERS_AVAILABLE_SUCCESS;
-  data: IPlayers;
+  data: IPlayers[];
 }
 
 interface IGetPlayersAvailableErrorAction {
@@ -30,7 +30,7 @@ function getPlayersAvailablePendingAction(): IGetPlayersAvailablePendingAction {
 }
 
 function getPlayersAvailableSuccessAction(
-  data: IPlayers
+  data: IPlayers[]
 ): IGetPlayersAvailableSuccessAction {
   return { type: GET_PLAYERS_AVAILABLE_SUCCESS, data };
 }
