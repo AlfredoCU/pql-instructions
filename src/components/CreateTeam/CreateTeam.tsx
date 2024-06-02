@@ -47,7 +47,11 @@ export default function CreateTeam() {
             >
               <Form register={register} errors={errors} />
 
-              <Table columns={availableColumns} rows={playersAvailable} />
+              <Table
+                specialAbility
+                rows={playersAvailable}
+                columns={availableColumns}
+              />
 
               <div className="create-team-container">
                 <Button
