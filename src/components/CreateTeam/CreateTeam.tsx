@@ -1,7 +1,7 @@
-import { useEffect } from "react";
 import { Button } from "@mui/material";
-import { useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 import { i18n } from "@/utils/helpers";
 import { IPlayers } from "@/utils/types";
@@ -18,14 +18,20 @@ import EmptyState from "../common/EmptyState";
 
 export default function CreateTeam() {
   const dispatch = useDispatch();
+  const [players, setPlayers] = useState<IPlayers[] | []>([]);
   const { register, handleSubmit, formState } = useForm({ mode: "all" });
 
   const { playersAvailable, isFetching, error } = useSelector(
     playersAvailableSelector
   );
 
-  const onSubmit = newData => {
+  const onSubmit: SubmitHandler<FieldValues> = newData => {
     console.log(newData);
+    console.log(players);
+  };
+
+  const handlePlayers = (newPlayers: IPlayers[] | []) => {
+    setPlayers(newPlayers);
   };
 
   useEffect(() => {
@@ -51,6 +57,7 @@ export default function CreateTeam() {
                 specialAbility
                 rows={playersAvailable}
                 columns={availableColumns}
+                handlePlayers={handlePlayers}
               />
 
               <div className="create-team-container">

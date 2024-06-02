@@ -5,7 +5,7 @@ import { TOption } from "@/utils/types";
 import { EOptions } from "@/utils/enums";
 import usePageLoader from "@/utils/hooks";
 import { darkTheme } from "@/utils/helpers";
-import { CreateTeam, Loader, Navbar, ShowTeams } from "@/components";
+import { Alert, CreateTeam, Loader, Navbar, ShowTeams } from "@/components";
 
 export default function App() {
   const [option, setOption] = useState(EOptions.CREATE_TEAM);
@@ -21,6 +21,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={darkTheme}>
+      <Alert />
       <Navbar option={option} handleOption={handleOption} />
 
       {option === EOptions.CREATE_TEAM && <CreateTeam />}

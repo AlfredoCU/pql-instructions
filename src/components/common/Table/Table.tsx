@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 import {
   Paper,
@@ -24,14 +24,16 @@ import { specialAbilityOption } from "@/utils/constants";
 import "./Table.css";
 
 type TDefaultTable = {
-  readonly rows: IPlayers[] | any;
   readonly columns: TColumns[];
+  readonly rows: IPlayers[] | any;
   readonly specialAbility?: boolean;
+  readonly handlePlayers?: (players: IPlayers[] | []) => void;
 };
 
 export default function DefaultTable({
   columns,
   rows = [],
+  handlePlayers,
   specialAbility
 }: TDefaultTable) {
   const [page, setPage] = useState(0);
@@ -68,6 +70,22 @@ export default function DefaultTable({
     setNewRows(newData);
     setSelected([]);
   };
+
+  const handleChange = (event: any, row: IPlayers) => {
+    const newData = newRows.map((item: IPlayers) =>
+      item.id === row.id
+        ? { ...item, special_ability: event.target.value }
+        : { ...item }
+    );
+
+    setNewRows(newData);
+  };
+
+  useEffect(() => {
+    if (handlePlayers) {
+      handlePlayers(newRows);
+    }
+  }, [newRows]);
 
   return (
     <>
@@ -130,18 +148,17 @@ export default function DefaultTable({
                               >
                                 <InputLabel
                                   color="warning"
-                                  id="id-team-select-label"
+                                  id={`id-ability-${row.id}-select-label`}
                                 >
                                   {i18n("CREATE_TEAM.COLUMNS.SPECIAL_ABILITY")}
                                 </InputLabel>
 
                                 <Select
                                   id="id-team"
-                                  label="id-team"
                                   color="warning"
-                                  // value={`${idTeam}`}
-                                  // onChange={handleChange}
-                                  labelId="id-team-select-label"
+                                  label={`id-ability-${row.id}`}
+                                  labelId={`id-ability-${row.id}-select-label`}
+                                  onChange={event => handleChange(event, row)}
                                 >
                                   {specialAbilityOption(row.position).map(
                                     item => (
@@ -156,8 +173,6 @@ export default function DefaultTable({
                           }
 
                           if (column.id === "actions") {
-                            console.log(row.id);
-
                             return (
                               <div className="table-check" key={row.id}>
                                 <Checkbox
