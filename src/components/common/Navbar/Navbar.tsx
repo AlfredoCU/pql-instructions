@@ -3,8 +3,8 @@ import classNames from "classnames";
 import { i18n } from "@/utils/helpers";
 import { TOption } from "@/utils/types";
 import { EOptions } from "@/utils/enums";
-import Home from "@/utils/svgs/home.svg?react";
-import Teams from "@/utils/svgs/teams.svg?react";
+import IconHome from "@/utils/svgs/home.svg?react";
+import IconTeams from "@/utils/svgs/teams.svg?react";
 
 import "./Navbar.css";
 import Logo from "/images/pql_logo_loader.png";
@@ -22,7 +22,7 @@ export default function Navbar({ option, handleOption }: TNavbar) {
             "navbar-btn-active": option === EOptions.CREATE_TEAM
           })}
         >
-          <Home className="navbar-icon" />
+          <IconHome className="navbar-icon" />
           <p>{i18n("COMMON.CREATE_TEAM")}</p>
         </button>
 
@@ -35,7 +35,7 @@ export default function Navbar({ option, handleOption }: TNavbar) {
             "navbar-btn-active": option === EOptions.SHOW_TEAM
           })}
         >
-          <Teams className="navbar-icon" />
+          <IconTeams className="navbar-icon" />
           <p>{i18n("COMMON.SHOW_TEAM")}</p>
         </button>
       </nav>

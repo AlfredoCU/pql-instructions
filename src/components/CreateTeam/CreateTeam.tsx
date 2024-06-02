@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import { useForm } from "react-hook-form";
 
 import { i18n } from "@/utils/helpers";
+import IconCreate from "@/utils/svgs/create.svg?react";
 
 import "./CreateTeam.css";
 import Form from "./components";
@@ -29,7 +30,12 @@ export default function CreateTeam() {
       <p>table</p>
 
       <div className="create-team-container">
-        <Button type="submit" variant="contained" color="warning">
+        <Button
+          type="submit"
+          color="warning"
+          variant="contained"
+          startIcon={<IconCreate width={20} />}
+        >
           <p className="create-team-btn-txt">{i18n("COMMON.CREATE_TEAM")}</p>
         </Button>
       </div>
