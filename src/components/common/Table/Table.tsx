@@ -1,33 +1,34 @@
-import React from "react";
-import Paper from "@mui/material/Paper";
-import Table from "@mui/material/Table";
-import TableRow from "@mui/material/TableRow";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableHead from "@mui/material/TableHead";
-import TableContainer from "@mui/material/TableContainer";
-import TablePagination from "@mui/material/TablePagination";
+import { ChangeEvent, useState } from "react";
 
-import { IPlayers, TAvailableColumns } from "@/utils/types";
+import {
+  Paper,
+  Table,
+  TableRow,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableContainer,
+  TablePagination
+} from "@mui/material";
+
+import { IPlayers, TColumns } from "@/utils/types";
 
 import "./Table.css";
 
 type TDefaultTable = {
-  rows: IPlayers[] | any;
-  columns: TAvailableColumns[];
+  readonly rows: IPlayers[] | any;
+  readonly columns: TColumns[];
 };
 
 export default function DefaultTable({ columns, rows = [] }: TDefaultTable) {
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const handleChangePage = (_: unknown, newPage: number) => {
     setPage(newPage);
   };
 
-  const handleChangeRowsPerPage = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleChangeRowsPerPage = (event: ChangeEvent<HTMLInputElement>) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };

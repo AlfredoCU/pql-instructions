@@ -1,0 +1,20 @@
+.select-container {
+  display: flex;
+  padding: 2rem 1rem;
+  object-fit: contain;
+  justify-content: center;
+}
+
+.select-container > div {
+  width: 100%;
+}
+
+@media (width >= 600px) {
+  .select-container {
+    justify-content: flex-start;
+  }
+
+  .select-container > div {
+    width: 300px;
+  }
+}

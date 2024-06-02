@@ -9,7 +9,10 @@ import IconTeams from "@/utils/svgs/teams.svg?react";
 import "./Navbar.css";
 import Logo from "/images/pql_logo_loader.png";
 
-type TNavbar = { option: TOption; handleOption: (option: TOption) => void };
+type TNavbar = {
+  readonly option: TOption;
+  readonly handleOption: (option: TOption) => void;
+};
 
 export default function Navbar({ option, handleOption }: TNavbar) {
   return (

@@ -1,0 +1,33 @@
+
+.empty-state {
+  padding: 2rem 1rem;
+  text-align: center;
+  object-fit: contain;
+}
+
+.empty-state > h1 {
+  font-weight: 600;
+  color: var(--active);
+  font-family: "Cactus Classical Serif", serif !important;
+}
+
+.empty-state > img {
+  width: 70%;
+}
+
+.img-round {
+  width: 200px !important;
+  height: 200px !important;
+  border-radius: 100%;
+}
+
+@media (width >= 600px) {
+  .empty-state > img {
+    width: 30%;
+  }
+
+  .img-round {
+    width: 300px !important;
+    height: 300px !important;
+  }
+}

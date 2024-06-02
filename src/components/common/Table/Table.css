@@ -1,4 +1,5 @@
 .panel-container {
+  width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -18,6 +19,6 @@
 
 @media (width >= 600px) {
   .table-container {
-    width: 70%;
+    width: 100%;
   }
 }

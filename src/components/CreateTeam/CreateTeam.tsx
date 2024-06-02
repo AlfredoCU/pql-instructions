@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 
 import { i18n } from "@/utils/helpers";
-import availableColumns from "@/utils/constants";
+import { availableColumns } from "@/utils/constants";
 import { getPlayersAvailable } from "@/store/actions";
 import IconCreate from "@/utils/svgs/create.svg?react";
 import { playersAvailableSelector } from "@/store/selectors";

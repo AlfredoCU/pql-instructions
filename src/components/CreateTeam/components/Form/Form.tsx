@@ -1,8 +1,9 @@
 import { Grid } from "@mui/material";
 import TextField from "@mui/material/TextField";
 
-import "./Form.css";
 import { i18n } from "@/utils/helpers";
+
+import "./Form.css";
 
 type TForm = {
   readonly errors: any;
@@ -29,10 +30,11 @@ export default function Form({ register, errors }: TForm) {
       <Grid item xs={12} sm={8}>
         <TextField
           fullWidth
+          name="slogan"
           color="warning"
-          name="description"
           variant="outlined"
           id="outlined-basic"
+          {...register("slogan")}
           label={i18n("CREATE_TEAM.INPUTS.DESCRIPTION")}
         />
       </Grid>
