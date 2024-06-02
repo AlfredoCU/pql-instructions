@@ -1,0 +1,25 @@
+.create-team-container {
+  width: 100%;
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: flex-end;
+}
+
+.create-team-container > button {
+  width: 100%;
+}
+
+.create-team-btn-txt {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--white);
+  text-transform: capitalize;
+}
+
+@media (width >= 600px) {
+  .create-team-container > button {
+    width: 200px;
+  }
+}

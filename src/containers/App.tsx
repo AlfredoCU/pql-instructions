@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { ThemeProvider } from "@mui/material/styles";
 
 import { TOption } from "@/utils/types";
 import { EOptions } from "@/utils/enums";
 import usePageLoader from "@/utils/hooks";
-import { Loader, Navbar } from "@/components";
+import { darkTheme } from "@/utils/helpers";
+import { CreateTeam, Loader, Navbar } from "@/components";
 
 export default function App() {
   const [option, setOption] = useState(EOptions.CREATE_TEAM);
@@ -18,11 +20,11 @@ export default function App() {
   }
 
   return (
-    <>
+    <ThemeProvider theme={darkTheme}>
       <Navbar option={option} handleOption={handleOption} />
 
-      {option === EOptions.CREATE_TEAM && <h1>create team</h1>}
+      {option === EOptions.CREATE_TEAM && <CreateTeam />}
       {option === EOptions.SHOW_TEAM && <h1>Show teams</h1>}
-    </>
+    </ThemeProvider>
   );
 }

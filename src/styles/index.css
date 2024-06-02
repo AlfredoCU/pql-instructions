@@ -14,7 +14,7 @@
   font-style: normal;
   font-weight: normal;
   line-height: normal;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif !important;
 }
 
 body {
