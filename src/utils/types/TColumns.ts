@@ -1,4 +1,4 @@
-export type TAvailableColumns = {
+export type TColumns = {
   id: string;
   label: string;
   align?: "right";

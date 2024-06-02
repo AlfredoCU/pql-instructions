@@ -1,5 +1,6 @@
 export * from "./TOptions";
 export * from "./TPosition";
-export * from "./TAvailableColumns";
+export * from "./TColumns";
 
 export * from "./IPlayers";
+export * from "./ITeams";
