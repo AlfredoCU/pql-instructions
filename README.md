@@ -1,3 +1,27 @@
+## 🧑‍💻 Install
+
+```bash
+npm install
+```
+
+## 📝 Environment Variables
+
+Create the `.env.local` file.
+
+```env
+VITE_API_HOST=http://localhost:3001
+```
+
+## 🏃🏻‍♂️ Getting Started
+
+First, run the development server.
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) with your browser to see the result.
+
 ## Project
 
 ### Build the Lineup for the Premier Quidditch League (PQL)
@@ -75,7 +99,7 @@ These tasks are not required, but they will certainly leave us spellbound if you
 
 1. **Performance Enhancements:**
     - Optimize performance by implementing code-splitting and lazy loading of components using React's `React.lazy` and `Suspense`. ⚡
-    
+
 2. **Advanced State Management:**
     - Use a more advanced state management library such as Redux or Zustand to handle complex state logic and ensure a scalable solution as the application grows. 📈
 
