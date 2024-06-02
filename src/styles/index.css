@@ -6,6 +6,7 @@
   --white: #FFFFFF;
   --active: #FEC012;
   --navbar: #011D18;
+  --scrollbar: #490D21;
   --backgroud: #01372E;
   --background-loader: linear-gradient(0deg, rgba(5,19,14,1) 48%, rgba(81,53,0,1) 100%);
 }
@@ -19,4 +20,18 @@
 
 body {
   background-color: var(--backgroud);
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: var(--backgroud);
+}
+
+body::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  background-color: var(--scrollbar);
 }

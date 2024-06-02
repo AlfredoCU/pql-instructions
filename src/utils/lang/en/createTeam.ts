@@ -3,6 +3,12 @@ const createTeam = {
     INPUTS: {
       NAME: "Name *",
       DESCRIPTION: "Description"
+    },
+    COLUMNS: {
+      NAME: "Name",
+      AGE: "Age",
+      POSITION: "Position",
+      SPECIAL_ABILITY: "Special Ability"
     }
   }
 };
