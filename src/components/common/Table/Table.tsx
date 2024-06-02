@@ -11,6 +11,7 @@ import {
   TablePagination
 } from "@mui/material";
 
+import { i18n } from "@/utils/helpers";
 import { IPlayers, TColumns } from "@/utils/types";
 
 import "./Table.css";
@@ -61,7 +62,7 @@ export default function DefaultTable({ columns, rows = [] }: TDefaultTable) {
                     <TableRow hover key={row.id} tabIndex={-1} role="checkbox">
                       {columns.map(column => (
                         <TableCell key={column.id} align={column.align}>
-                          {row[column.id]}
+                          {row[column.id] || i18n("COMMON.N/A")}
                         </TableCell>
                       ))}
                     </TableRow>

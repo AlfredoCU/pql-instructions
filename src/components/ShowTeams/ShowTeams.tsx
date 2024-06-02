@@ -11,8 +11,8 @@ import {
 
 import { i18n } from "@/utils/helpers";
 import { ITeams } from "@/utils/types";
-import { getTeams } from "@/store/actions";
-import { teamsSelector } from "@/store/selectors";
+import { getPlayersPerTeam, getTeams } from "@/store/actions";
+import { playersPerTeamSelector, teamsSelector } from "@/store/selectors";
 import { playersColumns } from "@/utils/constants";
 
 import "./ShowTeams.css";
@@ -26,6 +26,12 @@ export default function ShowTeams() {
   const [idTeam, setIdTeam] = useState("");
   const { teams, isFetching, error } = useSelector(teamsSelector);
 
+  const {
+    playersPerTeam,
+    isFetching: isFetchingPlayer,
+    error: errorPlayer
+  } = useSelector(playersPerTeamSelector);
+
   const handleChange = (event: SelectChangeEvent) => {
     setIdTeam(event.target.value as string & null);
   };
@@ -34,7 +40,11 @@ export default function ShowTeams() {
     dispatch<any>(getTeams());
   }, []);
 
-  console.log(idTeam);
+  useEffect(() => {
+    if (idTeam) {
+      dispatch<any>(getPlayersPerTeam(idTeam));
+    }
+  }, [idTeam]);
 
   return (
     <>
@@ -66,7 +76,11 @@ export default function ShowTeams() {
               </div>
 
               {idTeam ? (
-                <Table columns={playersColumns} rows={[]} />
+                <>
+                  {!isFetchingPlayer && !errorPlayer && (
+                    <Table columns={playersColumns} rows={playersPerTeam} />
+                  )}
+                </>
               ) : (
                 <EmptyState
                   round
