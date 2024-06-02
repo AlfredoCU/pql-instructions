@@ -11,9 +11,9 @@ import {
 
 import { i18n } from "@/utils/helpers";
 import { ITeams } from "@/utils/types";
+import { playersColumns } from "@/utils/constants";
 import { getPlayersPerTeam, getTeams } from "@/store/actions";
 import { playersPerTeamSelector, teamsSelector } from "@/store/selectors";
-import { playersColumns } from "@/utils/constants";
 
 import "./ShowTeams.css";
 import Table from "../common/Table";

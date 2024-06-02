@@ -9,7 +9,8 @@ const createTeam = {
       AGE: "Edad",
       POSITION: "Pocisión",
       SPECIAL_ABILITY: "Habilidad Especial"
-    }
+    },
+    EMPTY_STATE: "No hay jugadores disponibles"
   }
 };
 
