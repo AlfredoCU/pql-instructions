@@ -5,6 +5,9 @@ node_modules/
 .env
 .env.local
 
+# Test
+coverage
+
 # Logs
 logs
 *.log
