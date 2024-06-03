@@ -27,6 +27,7 @@ export default function Alert({
   return (
     <ToastContainer
       rtl={rtl}
+      theme="colored"
       position={position}
       autoClose={autoClose}
       draggable={draggable}

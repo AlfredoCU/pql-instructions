@@ -80,6 +80,13 @@ export default function ShowTeams() {
                   {!isFetchingPlayer && !errorPlayer && (
                     <Table columns={playersColumns} rows={playersPerTeam} />
                   )}
+
+                  <h1 className="title">
+                    {
+                      (teams as any).find((item: ITeams) => item.id === idTeam)
+                        ?.slogan
+                    }
+                  </h1>
                 </>
               ) : (
                 <EmptyState

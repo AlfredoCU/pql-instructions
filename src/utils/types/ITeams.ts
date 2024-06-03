@@ -1,5 +1,5 @@
 export interface ITeams {
-  id: number;
+  id: number | string;
   name: string;
   slogan: string;
 }

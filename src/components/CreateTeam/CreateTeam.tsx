@@ -6,9 +6,9 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { i18n } from "@/utils/helpers";
 import { IPlayers } from "@/utils/types";
 import { availableColumns } from "@/utils/constants";
-import { getPlayersAvailable } from "@/store/actions";
 import IconCreate from "@/utils/svgs/create.svg?react";
-import { playersAvailableSelector } from "@/store/selectors";
+import { playersAvailableSelector, teamsSelector } from "@/store/selectors";
+import { createTeam, getPlayersAvailable } from "@/store/actions";
 
 import "./CreateTeam.css";
 import Form from "./components";
@@ -19,15 +19,16 @@ import EmptyState from "../common/EmptyState";
 export default function CreateTeam() {
   const dispatch = useDispatch();
   const [players, setPlayers] = useState<IPlayers[] | []>([]);
-  const { register, handleSubmit, formState } = useForm({ mode: "all" });
+  const { register, handleSubmit, formState, reset } = useForm({ mode: "all" });
 
+  const { createTeam: success } = useSelector(teamsSelector);
   const { playersAvailable, isFetching, error } = useSelector(
     playersAvailableSelector
   );
 
   const onSubmit: SubmitHandler<FieldValues> = newData => {
-    console.log(newData);
-    console.log(players);
+    dispatch<any>(createTeam({ ...newData, players } as any));
+    reset();
   };
 
   const handlePlayers = (newPlayers: IPlayers[] | []) => {
@@ -36,7 +37,7 @@ export default function CreateTeam() {
 
   useEffect(() => {
     dispatch<any>(getPlayersAvailable());
-  }, []);
+  }, [success]);
 
   const { errors } = formState;
 
