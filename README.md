@@ -22,6 +22,18 @@ npm run dev
 
 Open [http://localhost:5173](http://localhost:5173) with your browser to see the result.
 
+## ✅ Test
+
+```bash
+npm run test
+```
+
+Test coverage.
+
+```bash
+npm run test:coverage
+```
+
 ## Project
 
 ### Build the Lineup for the Premier Quidditch League (PQL)
