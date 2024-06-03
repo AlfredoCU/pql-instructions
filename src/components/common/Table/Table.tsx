@@ -81,6 +81,8 @@ export default function DefaultTable({
     setNewRows(newData);
   };
 
+  const isSelected = (id: number) => selected.indexOf(id) !== -1;
+
   useEffect(() => {
     if (handlePlayers) {
       handlePlayers(newRows);
@@ -173,10 +175,13 @@ export default function DefaultTable({
                           }
 
                           if (column.id === "actions") {
+                            const isItemSelected = isSelected(row.id);
+
                             return (
                               <div className="table-check" key={row.id}>
                                 <Checkbox
                                   color="warning"
+                                  checked={isItemSelected}
                                   onClick={event =>
                                     handleSelectClick(event, row.id)
                                   }
