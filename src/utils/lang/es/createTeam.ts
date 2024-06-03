@@ -20,7 +20,14 @@ const createTeam = {
       SEVEN: "Mejora del rastreo",
       EIGHT: "Mejora en ataque"
     },
-    REMOVE_FROM_CREATION: "",
+    SUCCESS: "Equipo creado exitosamente",
+    ERRORS: {
+      PLAYERS_ARE_REQUIRED: "Los jugadores son requeridos",
+      THE_TEAM_NAME_ALREADY_EXISTS:
+        "El nombre del equipo ya existe, ingresa otro nombre",
+      AN_ERROR_OCCURRED: "Se produjo un error, por favor vuelva a intentarlo"
+    },
+    REMOVE_FROM_CREATION: "Eliminar de la creación",
     EMPTY_STATE: "No hay jugadores disponibles"
   }
 };

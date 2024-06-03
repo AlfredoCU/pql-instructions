@@ -10,8 +10,10 @@
 }
 
 .title {
+  padding: 1rem;
   font-weight: 600;
   text-align: center;
+  object-fit: contain;
   color: var(--active);
   font-family: "Cactus Classical Serif", serif !important;
 }

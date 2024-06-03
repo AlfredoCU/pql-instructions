@@ -14,6 +14,7 @@ import {
   GET_TEAMS_PENDING,
   GET_TEAMS_SUCCESS
 } from "../types";
+import { i18n } from "@/utils/helpers";
 
 interface IGetTeamsPendingAction {
   type: typeof GET_TEAMS_PENDING;
@@ -95,7 +96,7 @@ export function createTeam(
       dispatch(createTeamPendingAction());
 
       if (createTeamData.players.length <= 0) {
-        throw new Error("Players are required");
+        throw new Error(i18n("CREATE_TEAM.ERRORS.PLAYERS_ARE_REQUIRED"));
       }
 
       const { data: teams } = await api.get("/api/teams");
@@ -105,7 +106,9 @@ export function createTeam(
       );
 
       if (nameFound) {
-        throw new Error("The team name already exists, enter another name");
+        throw new Error(
+          i18n("CREATE_TEAM.ERRORS.THE_TEAM_NAME_ALREADY_EXISTS")
+        );
       }
 
       const requests = createTeamData.players.map(item =>
@@ -115,14 +118,14 @@ export function createTeam(
       const updatedPlayers = await Promise.all(requests);
 
       if (updatedPlayers.length === 0) {
-        throw new Error("An error occurred, please re-enter");
+        throw new Error(i18n("CREATE_TEAM.ERRORS.AN_ERROR_OCCURRED"));
       }
 
       const newPlayers = updatedPlayers.map(item => item.data.id);
 
       api.post("/api/teams", { ...createTeamData, players: newPlayers });
 
-      toast.success("Team created successfully");
+      toast.success(i18n("CREATE_TEAM.SUCCESS"));
       dispatch(createTeamSuccessAction());
     } catch (error: any) {
       toast.error(error?.message);
